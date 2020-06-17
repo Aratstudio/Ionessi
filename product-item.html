@@ -42,40 +42,11 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap">
     <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="libs/owlcarousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="libs/owlcarousel/owl.theme.default.min.css">
-    <link rel="stylesheet" type="text/css" href="libs/slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="libs/slick/slick-theme.css" />
+    <link rel="stylesheet" href="css/plugins.min.css">
     <link rel="stylesheet" href="libs/microtip/microtip.min.css">
     <link rel="stylesheet" href="libs/magnific-popup/magnific-popup.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/media.css">
-
-    <style>
-        /*
-        .zoom {
-            display: inline-block;
-            position: relative;
-        }
-        .zoom:after {
-            content: '';
-            display: block;
-            width: 33px;
-            height: 33px;
-            position: absolute;
-            top: 0;
-            right: 0;
-            background: url(icon.png);
-        }
-        .zoom img {
-            display: block;
-        }
-
-        .zoom img::selection {
-            background-color: transparent;
-        }
-        */
-    </style>
 
 </head>
 
@@ -1119,68 +1090,15 @@
         </div>
     </footer>
     <!-- Footer End -->
-
     <div id="back-to-top">
         <a href="#top"><i class="fa fa-angle-up"></i></a>
     </div>
-
-
     <!-- jQuery Scripts -->
     <script src="js/plugins.min.js"></script>
-    <script src="libs/megamenu/js/megamenu.js"></script>
     <script src="libs/owlcarousel/owl.carousel.min.js"></script>
-    <!--<script src="libs/owlcarousel/owl.carousel2.thumbs.min.js1"></script>-->
     <script src="libs/slick/slick.min.js"></script>
-    <!--<script src="libs/zoomsl/zoomsl.min.js"></script>-->
-    <script src="libs/zoom-master/jquery.zoom.js"></script>
-    <script src="libs/readmore/readmore.min.js"></script>
     <script src="libs/magnific-popup/jquery.magnific-popup.min.js"></script>
     <script src="js/common.js"></script>
-    <script>
-        $(document).ready(function () {
-            if ($(window).width() > 768) {
-                $('img.megazoom')
-                    .wrap('<span style="display:inline-block;" class="megablock"></span>')
-                    .css('display', 'block')
-                    .parent()
-                    .zoom({ magnify: '1' });
-            }
-        });
-        window.onresize = function (e) {
-            if ($(window).width() < 768) {
-                $("img.megazoom").addClass("destroy");
-                $('img.megazoom.destroy').trigger('zoom.destroy');
-            }
-        }
-    </script>
-
-    <script>
-        $(document).ready(function () {
-            $('.zoom-gallery').magnificPopup({
-                delegate: 'a',
-                type: 'image',
-                closeOnContentClick: false,
-                closeBtnInside: false,
-                mainClass: 'mfp-with-zoom mfp-img-mobile',
-                image: {
-                    verticalFit: true
-                },
-                gallery: {
-                    enabled: true
-                },
-                zoom: {
-                    enabled: true,
-                    duration: 300, // don't foget to change the duration also in CSS
-                    opener: function (element) {
-                        return element.find('img');
-                    }
-                }
-
-            });
-        });
-    </script>
-
-
 </body>
 
 </html>

@@ -214,7 +214,6 @@ $('.slider-nav').slick({
 /* READMORE
 -------------------------------------------------------*/
 
-$(function () {
     $('#readmore').readmore({
         moreLink: '<a href="#" class="readmorelink">читать далее</a>',
         lessLink: '<a href="#" class="readmorelink">свернуть</a>',
@@ -226,27 +225,6 @@ $(function () {
             }
         }
     });
-});
-
-
-
-/* ZOOMSL
--------------------------------------------------------*/
-/*
-jQuery(function(){
-        
-    $(".zoomsl").imagezoomsl({
-       innerzoom: true,
-       disablewheel: true,
-       zindex: 1,
-       switchsides:false,
-       loopspeedanimate: 3,
-       scrollspeedanimate:1.2,
-       magnifiereffectanimate: "fadeIn",
-       magnifierborder: "1px solid #2b2e36"		 
-    });
- });  
-*/
 
  /* MEGA MENU
 -------------------------------------------------------*/
