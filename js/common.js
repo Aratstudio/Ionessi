@@ -250,3 +250,54 @@ jQuery(function(){
 
  /* MEGA MENU
 -------------------------------------------------------*/
+
+/* --------------------------------- begin migrate of index.html-------------------------------- */
+
+$(".menu-mobile").click(function () {
+    $(".menu-mobile").toggleClass("active");
+});
+
+/* --------------------------------- end migrate of index.html ----------------------- */
+
+
+
+/* ------------------- begin migrate of product-item.html ------------------- */
+
+if ($(window).width() > 768) {
+        $('img.megazoom')
+            .wrap('<span style="display:inline-block;" class="megablock"></span>')
+            .css('display', 'block')
+            .parent()
+            .zoom({ magnify: '1' });
+};
+
+window.onresize = function (e) {
+    if ($(window).width() < 768) {
+        $("img.megazoom").addClass("destroy");
+        $('img.megazoom.destroy').trigger('zoom.destroy');
+    }
+};
+
+$('.zoom-gallery').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        closeOnContentClick: false,
+        closeBtnInside: false,
+        mainClass: 'mfp-with-zoom mfp-img-mobile',
+        image: {
+            verticalFit: true
+        },
+        gallery: {
+            enabled: true
+        },
+        zoom: {
+            enabled: true,
+            duration: 300, // don't foget to change the duration also in CSS
+            opener: function (element) {
+                return element.find('img');
+            }
+        }
+
+});
+
+/* -------------------- end migrate of product-item.html -------------------- */
