@@ -335,6 +335,10 @@ if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
 									?>
 									 <div class="col-xl-3 col-lg-4 col-sm-6 col-6">
 										<?
+
+
+
+
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
 											'',
