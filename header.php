@@ -44,13 +44,13 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap">
 
     <?
-    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'libs/bootstrap/css/bootstrap.min.css');
-    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'libs/font-awesome/css/font-awesome.min.css');
-    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'css/plugins.min.css');
-    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'libs/microtip/microtip.min.css');
-    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'libs/magnific-popup/magnific-popup.css');
-    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'css/main.css');
-    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'css/media.css');
+    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/libs/bootstrap/css/bootstrap.min.css');
+    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/libs/font-awesome/css/font-awesome.min.css');
+    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/css/plugins.min.css');
+    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/libs/microtip/microtip.min.css');
+    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/libs/magnific-popup/magnific-popup.css');
+    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/css/main.css');
+    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/css/media.css');
     ?>
 
 </head>
@@ -96,7 +96,7 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
                     <div class="row">
                         <div class="col-xl-3 col-lg-4">
                             <a href="#" class="logo">
-                                <img src="img/logo/logo.png" alt="">
+                                <img src="<?=SITE_TEMPLATE_PATH?>/img/logo/logo.png" alt="">
                             </a>
                         </div>
                         <div class="col-xl-2 col-lg-4">
@@ -111,13 +111,13 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
                                 <ul>
                                     <li>
                                         <div class="header-shops">
-                                            <img src="img/icon/karta.svg"></object>
+                                            <img src="<?=SITE_TEMPLATE_PATH?>/img/icon/karta.svg"></img>
                                             <a href="#">Все магазины</a>
                                         </div>
                                     </li>
-                                    <li><a href=""><img src="img/icon/lich-kab.svg"></a></li>
-                                    <li><a href=""><img src="img/icon/korzina.svg"></a></li>
-                                    <li><a href=""><img src="img/icon/izbrannoe.svg"></a></li>
+                                    <li><a href=""><img src="<?=SITE_TEMPLATE_PATH?>/img/icon/lich-kab.svg"></a></li>
+                                    <li><a href=""><img src="<?=SITE_TEMPLATE_PATH?>/img/icon/korzina.svg"></a></li>
+                                    <li><a href=""><img src="<?=SITE_TEMPLATE_PATH?>/img/icon/izbrannoe.svg"></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -139,13 +139,13 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
                                 <ul>
                                     <li>
                                         <div class="header-shops">
-                                            <img src="img/icon/karta.svg"></object>
+                                            <img src="<?=SITE_TEMPLATE_PATH?>/img/icon/karta.svg"></object>
                                             <a href="#">Все магазины</a>
                                         </div>
                                     </li>
-                                    <li><a href=""><img src="img/icon/lich-kab.svg"></a></li>
-                                    <li><a href=""><img src="img/icon/korzina.svg"></a></li>
-                                    <li><a href=""><img src="img/icon/izbrannoe.svg"></a></li>
+                                    <li><a href=""><img src="<?=SITE_TEMPLATE_PATH?>/img/icon/lich-kab.svg"></a></li>
+                                    <li><a href=""><img src="<?=SITE_TEMPLATE_PATH?>/img/icon/korzina.svg"></a></li>
+                                    <li><a href=""><img src="<?=SITE_TEMPLATE_PATH?>/img/icon/izbrannoe.svg"></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -159,11 +159,11 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
                     <div class="menu-mobile-wrapper d-block d-lg-none">
 
                         <a href="#">
-                            <img src="img/logo/logo.png" alt="">
+                            <img src="<?=SITE_TEMPLATE_PATH?>/img/logo/logo.png" alt="">
                         </a>
                         <div class="mobile-icons">
-                            <a href=""><img src="img/icon/izbrannoe.svg"></a>
-                            <a href=""><img src="img/icon/korzina.svg"></a>
+                            <a href=""><img src="<?=SITE_TEMPLATE_PATH?>/img/icon/izbrannoe.svg"></a>
+                            <a href=""><img src="<?=SITE_TEMPLATE_PATH?>/img/icon/korzina.svg"></a>
                         </div>
                     </div>
 
@@ -222,7 +222,7 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
                                             <li><a href="#">Обувь с Hydromax(22)</a></li>
                                         </ul>
                                         <a href="#">Товары со скидкой(346)</a>
-                                        <a href="#" class="info-img"><img src="images/b1.jpg" alt=""></a>
+                                        <a href="#" class="info-img"><img src="<?=SITE_TEMPLATE_PATH?>/images/b1.jpg" alt=""></a>
                                     </li>
                                     <li><a href="#">Категория</a>
                                         <ul>
@@ -293,3 +293,22 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
     <!-- HEADER END -->
 
     <div class="main-wrapper">
+
+    <!--
+    <div class="breadcrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+                        <li class="breadcrumb-item">Каталог</li>
+                        <li class="breadcrumb-item active">Сапоги демисезонные женские</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
+
+    <section class="inner-part">
+            <div class="container">

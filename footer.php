@@ -2,6 +2,11 @@
 if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 	die();
 ?>
+
+
+            </div>
+        </section>
+
 </div>
 
 <!-- Footer Start -->
@@ -69,7 +74,7 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
             <a href="#"><i class="fa fa-vk" aria-hidden="true"></i></a>
             <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
             <h3 class="cards-title">Принимаем к оплате</h3>
-            <img src="images/cards.jpg" alt="">
+            <img src="<?=SITE_TEMPLATE_PATH?>/images/cards.jpg" alt="">
         </div>
 
     </div>
@@ -91,11 +96,11 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 <!-- jQuery Scripts -->
 
 <?
-$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'js/plugins.min.js');
-$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'libs/owlcarousel/owl.carousel.min.js');
-$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'libs/slick/slick.min.js');
-$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'libs/magnific-popup/jquery.magnific-popup.min.js');
-$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'js/common.js');
+$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/plugins.min.js');
+$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/libs/owlcarousel/owl.carousel.min.js');
+$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/libs/slick/slick.min.js');
+$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/libs/magnific-popup/jquery.magnific-popup.min.js');
+$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/common.js');
 ?>
 
 </body>
