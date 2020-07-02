@@ -23,81 +23,49 @@ use \Bitrix\Main\Localization\Loc;
  */
 ?>
 
-<!-- Ionessi Card Start -->
-<!--
-<p class="item-new">Новинка</p>
+	<p class="item-action">Скидка 50%</p>
+		<div class="item-image">
 
-<div class="item-image">
-	<a href="<?=$item['DETAIL_PAGE_URL']?>" title="<?=$imgTitle?>">
-	<?
-		foreach ($morePhoto as $key => $photo)
-		{
-			?>
-			<img class="product-item-image-slide item" src="<?=$photo['SRC']?>">
-			<?
-		}
-	?>
-	</a>
-	<a href="#" class="btn btn-primary">Быстрый просмотр</a>
-</div>
+	<!-- Picture Start -->
 
-<div class="item-desc">
-	<p class="item-title"><?=$productTitle?></p>
-	<p class="old-price">
-		4 500 <span class="ruble">руб.</span>
-	</p>
-	<p class="item-price"> 3 700 <span class="ruble">руб.</span></p>
-</div>
-	-->
-
-
-
-
-<!-- Ionessi Card End -->
-
-
-
-
-
-    <p class="item-new">Новинка</p>
 	<? if ($itemHasDetailUrl): ?>
-		<a class="product-item-image-wrapper" href="<?=$item['DETAIL_PAGE_URL']?>" title="<?=$imgTitle?>" data-entity="image-wrapper">
+	<a  href="<?=$item['DETAIL_PAGE_URL']?>" title="<?=$imgTitle?>">
 	<? else: ?>
-		<span class="product-item-image-wrapper" data-entity="image-wrapper">
+	<span class="product-item-image-wrapper" data-entity="image-wrapper">
 	<? endif; ?>
-	
-		<span class="product-item-image-slider-slide-container slide" id="<?=$itemIds['PICT_SLIDER']?>"
-			<?=($showSlider ? '' : 'style="display: none;"')?>
-			data-slider-interval="<?=$arParams['SLIDER_INTERVAL']?>" data-slider-wrap="true">
+
+		<div id="<?=$itemIds['PICT_SLIDER']?>"
+			<?=($showSlider ? '' : 'style="display: none;"')?> >
 			<?
 			if ($showSlider)
-			{
-				foreach ($morePhoto as $key => $photo)
-				{
+			{	
+				$i = 0;
+				foreach ($morePhoto as $key => $photo){
+
+				$i++;
+				if($i > 2) {
+					break;
+				}
+
 					?>
-					<span class="product-item-image-slide item <?=($key == 0 ? 'active' : '')?>"
-						style="background-image: url('<?=$photo['SRC']?>');">
-					</span>
+					<img src="<?=$photo['SRC']?>">
 					<?
 				}
 			}
 			?>
-		</span>
-		<span class="product-item-image-original" id="<?=$itemIds['PICT']?>"
-			style="background-image: url('<?=$item['PREVIEW_PICTURE']['SRC']?>'); <?=($showSlider ? 'display: none;' : '')?>">
-		</span>
-	
+		</div>
+
+
+		<img src="<?=$item['PREVIEW_PICTURE']['SRC']?>" id="<?=$itemIds['PICT']?>" style="<?=($showSlider ? 'display: none;' : '')?>">
+
 		<?
 		if ($item['SECOND_PICT'])
 		{
 			$bgImage = !empty($item['PREVIEW_PICTURE_SECOND']) ? $item['PREVIEW_PICTURE_SECOND']['SRC'] : $item['PREVIEW_PICTURE']['SRC'];
 			?>
-			<span class="product-item-image-alternative" id="<?=$itemIds['SECOND_PICT']?>"
-				style="background-image: url('<?=$bgImage?>'); <?=($showSlider ? 'display: none;' : '')?>">
-			</span>
+			<img src="<?=$bgImage?>" id="<?=$itemIds['SECOND_PICT']?>" style="<?=($showSlider ? 'display: none;' : '')?>">
 			<?
 		}
-
 
 		if ($arParams['SHOW_DISCOUNT_PERCENT'] === 'Y')
 		{
@@ -108,8 +76,6 @@ use \Bitrix\Main\Localization\Loc;
 			</div>
 			<?
 		}
-
-
 
 		if ($item['LABEL'])
 		{
@@ -157,10 +123,17 @@ use \Bitrix\Main\Localization\Loc;
 		}
 		?>
 	<? if ($itemHasDetailUrl): ?>
+
+	<a href="#" class="btn btn-primary">Быстрый просмотр</a>
 	</a>
 	<? else: ?>
 	</span>
 	<? endif; ?>
+	</div>
+	<!-- Picture End -->
+
+
+	<!--
 	<div class="product-item-title">
 		<? if ($itemHasDetailUrl): ?>
 		<a href="<?=$item['DETAIL_PAGE_URL']?>" title="<?=$productTitle?>">
@@ -169,32 +142,15 @@ use \Bitrix\Main\Localization\Loc;
 		<? if ($itemHasDetailUrl): ?>
 		</a>
 		<? endif; ?>
-    </div>
+	</div>
+	-->
 
-
-
-
-<div class="item-image">
-	<a href="<?=$item['DETAIL_PAGE_URL']?>" title="<?=$imgTitle?>">
-
-			
-	<?if($showSlider){
-		foreach ($morePhoto as $key => $photo)
-		{
-	?>
-	<img src="<?=$photo['SRC']?>">
-	<?
-		}
-	}	
-	?>
-	</a>
-	<a href="#" class="btn btn-primary">Быстрый просмотр</a>
-</div>
-
-
-
+<!-- Item Desc Start -->
 <div class="item-desc">
-    <p class="item-title"><?=$productTitle?></p>
+
+	<p class="item-title"><?=$productTitle?></p>
+
+
 	<?
 	if (!empty($arParams['PRODUCT_BLOCKS_ORDER']))
 	{
@@ -202,23 +158,19 @@ use \Bitrix\Main\Localization\Loc;
 		{
 			switch ($blockName)
 			{
-                case 'price': ?>
-                
-					
-                        
-                        <?
+				case 'price': ?>
+					<div class="product-item-info-container product-item-price-container" data-entity="price-block">
+						<?
 						if ($arParams['SHOW_OLD_PRICE'] === 'Y')
 						{
-                            ?>
-							<p class="old-price" id="<?=$itemIds['PRICE_OLD']?>"
+							?>
+							<p class="old-price"" id="<?=$itemIds['PRICE_OLD']?>"
 								<?=($price['RATIO_PRICE'] >= $price['RATIO_BASE_PRICE'] ? 'style="display: none;"' : '')?>>
 								<?=$price['PRINT_RATIO_BASE_PRICE']?>
 							</p>
 							<?
 						}
-                        ?>
-                        
-
+						?>
 						<p class="item-price" id="<?=$itemIds['PRICE']?>">
 							<?
 							if (!empty($price))
@@ -240,10 +192,8 @@ use \Bitrix\Main\Localization\Loc;
 								}
 							}
 							?>
-                        </p>
-                        
-
-				
+						</p>
+					</div>
 					<?
 					break;
 
@@ -360,18 +310,19 @@ use \Bitrix\Main\Localization\Loc;
 
 				case 'buttons':
 					?>
-
+					<div class="item-hover">
 						<?
 						if (!$haveOffers)
 						{
 							if ($actualItem['CAN_BUY'])
 							{
 								?>
-								<div class="item-hover" id="<?=$itemIds['BASKET_ACTIONS']?>">
-									<a class="btn btn-primary" id="<?=$itemIds['BUY_LINK']?>" href="javascript:void(0)" rel="nofollow">
+								<div class="product-item-button-container" id="<?=$itemIds['BASKET_ACTIONS']?>">
+									<a class="btn btn-primary" id="<?=$itemIds['BUY_LINK']?>"
+										href="javascript:void(0)" rel="nofollow">
 										<?=($arParams['ADD_TO_BASKET_ACTION'] === 'BUY' ? $arParams['MESS_BTN_BUY'] : $arParams['MESS_BTN_ADD_TO_BASKET'])?>
 									</a>
-                                </div>
+								</div>
 								<?
 							}
 							else
@@ -454,159 +405,10 @@ use \Bitrix\Main\Localization\Loc;
 							}
 						}
 						?>
-					
+					</div>
 					<?
 					break;
 
-				case 'propsDisabledYes':
-					if (!$haveOffers)
-					{
-						if (!empty($item['DISPLAY_PROPERTIES']))
-						{
-                            ?>
-							<div class="product-item-info-container product-item-hidden" data-entity="props-block">
-								<dl class="product-item-properties">
-									<?
-									foreach ($item['DISPLAY_PROPERTIES'] as $code => $displayProperty)
-									{
-										?>
-										<dt<?=(!isset($item['PROPERTY_CODE_MOBILE'][$code]) ? ' class="hidden-xs"' : '')?>>
-											<?=$displayProperty['NAME']?>
-										</dt>
-										<dd<?=(!isset($item['PROPERTY_CODE_MOBILE'][$code]) ? ' class="hidden-xs"' : '')?>>
-											<?=(is_array($displayProperty['DISPLAY_VALUE'])
-												? implode(' / ', $displayProperty['DISPLAY_VALUE'])
-												: $displayProperty['DISPLAY_VALUE'])?>
-										</dd>
-										<?
-									}
-									?>
-								</dl>
-							</div>
-							<?
-						}
-
-						if ($arParams['ADD_PROPERTIES_TO_BASKET'] === 'Y' && !empty($item['PRODUCT_PROPERTIES']))
-						{
-							?>
-							<div id="<?=$itemIds['BASKET_PROP_DIV']?>" style="display: none;">
-								<?
-								if (!empty($item['PRODUCT_PROPERTIES_FILL']))
-								{
-									foreach ($item['PRODUCT_PROPERTIES_FILL'] as $propID => $propInfo)
-									{
-										?>
-										<input type="hidden" name="<?=$arParams['PRODUCT_PROPS_VARIABLE']?>[<?=$propID?>]"
-											value="<?=htmlspecialcharsbx($propInfo['ID'])?>">
-										<?
-										unset($item['PRODUCT_PROPERTIES'][$propID]);
-									}
-								}
-
-								if (!empty($item['PRODUCT_PROPERTIES']))
-								{
-									?>
-									<table>
-										<?
-										foreach ($item['PRODUCT_PROPERTIES'] as $propID => $propInfo)
-										{
-											?>
-											<tr>
-												<td><?=$item['PROPERTIES'][$propID]['NAME']?></td>
-												<td>
-													<?
-													if (
-														$item['PROPERTIES'][$propID]['PROPERTY_TYPE'] === 'L'
-														&& $item['PROPERTIES'][$propID]['LIST_TYPE'] === 'C'
-													)
-													{
-														foreach ($propInfo['VALUES'] as $valueID => $value)
-														{
-															?>
-															<label>
-																<? $checked = $valueID === $propInfo['SELECTED'] ? 'checked' : ''; ?>
-																<input type="radio" name="<?=$arParams['PRODUCT_PROPS_VARIABLE']?>[<?=$propID?>]"
-																	value="<?=$valueID?>" <?=$checked?>>
-																<?=$value?>
-															</label>
-															<br />
-															<?
-														}
-													}
-													else
-													{
-														?>
-														<select name="<?=$arParams['PRODUCT_PROPS_VARIABLE']?>[<?=$propID?>]">
-															<?
-															foreach ($propInfo['VALUES'] as $valueID => $value)
-															{
-																$selected = $valueID === $propInfo['SELECTED'] ? 'selected' : '';
-																?>
-																<option value="<?=$valueID?>" <?=$selected?>>
-																	<?=$value?>
-																</option>
-																<?
-															}
-															?>
-														</select>
-														<?
-													}
-													?>
-												</td>
-											</tr>
-											<?
-										}
-										?>
-									</table>
-									<?
-								}
-								?>
-							</div>
-							<?
-						}
-					}
-					else
-					{
-						$showProductProps = !empty($item['DISPLAY_PROPERTIES']);
-						$showOfferProps = $arParams['PRODUCT_DISPLAY_MODE'] === 'Y' && $item['OFFERS_PROPS_DISPLAY'];
-
-						if ($showProductProps || $showOfferProps)
-						{
-							?>
-							<div class="product-item-info-container product-item-hidden" data-entity="props-block">
-								<dl class="product-item-properties">
-									<?
-									if ($showProductProps)
-									{
-										foreach ($item['DISPLAY_PROPERTIES'] as $code => $displayProperty)
-										{
-											?>
-											<dt<?=(!isset($item['PROPERTY_CODE_MOBILE'][$code]) ? ' class="hidden-xs"' : '')?>>
-												<?=$displayProperty['NAME']?>
-											</dt>
-											<dd<?=(!isset($item['PROPERTY_CODE_MOBILE'][$code]) ? ' class="hidden-xs"' : '')?>>
-												<?=(is_array($displayProperty['DISPLAY_VALUE'])
-													? implode(' / ', $displayProperty['DISPLAY_VALUE'])
-													: $displayProperty['DISPLAY_VALUE'])?>
-											</dd>
-											<?
-										}
-									}
-
-									if ($showOfferProps)
-									{
-										?>
-										<span id="<?=$itemIds['DISPLAY_PROP_DIV']?>" style="display: none;"></span>
-										<?
-									}
-									?>
-								</dl>
-							</div>
-							<?
-						}
-					}
-
-					break;
 
 				case 'sku':
 					if ($arParams['PRODUCT_DISPLAY_MODE'] === 'Y' && $haveOffers && !empty($item['OFFERS_PROP']))
@@ -734,6 +536,7 @@ use \Bitrix\Main\Localization\Loc;
 		</div>
 		<?
 	}
-    ?>
-    
+	?>
+
 </div>
+<!-- Item Desc End-->

@@ -279,3 +279,14 @@ $('.zoom-gallery').magnificPopup({
 });
 
 /* -------------------- end migrate of product-item.html -------------------- */
+
+
+$('#something').on('click', function() {
+    if (!$(this).hasClass('clicked')) { // если класса нет
+      $(this).addClass('clicked'); // добавляем класс
+      console.log('First click'); // код для первого клика
+    } else { // если есть
+      $(this).removeClass('clicked'); // убираем класс
+      console.log('Second click'); // код для второго клика
+    }
+  });

@@ -3,9 +3,11 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 	die();
 ?>
 
+<? if ($APPLICATION->GetCurPage(false) !== '/'): ?>
 
-            </div>
-        </section>
+	</div>
+</section>
+<? endif; ?>
 
 </div>
 
@@ -66,13 +68,30 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
         <div class="footer-widget">
             <h3>Контактная информация</h3>
             <div class="contacts-info">
-                <a href="#">+7(391)212-45-22</a>
-                <a href="#">email@email.ru</a>
+				 <?$APPLICATION->IncludeFile(
+				 SITE_DIR."include/phone.php",
+				 array(),
+				 array(
+					"MODE"=>"html"
+					)  
+				 );?>
+				 <?$APPLICATION->IncludeFile(
+				 SITE_DIR."include/email.php",
+				 array(),
+				 array(
+					"MODE"=>"html"
+					)  
+				 );?>
             </div>
             <h3><a href="#">Все магазины</a></h3>
             <h3 class="social">Мы в соцсетях</h3>
-            <a href="#"><i class="fa fa-vk" aria-hidden="true"></i></a>
-            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+			 <?$APPLICATION->IncludeFile(
+			 SITE_DIR."include/social.php",
+			 array(),
+			 array(
+				"MODE"=>"html"
+				)  
+			 );?>
             <h3 class="cards-title">Принимаем к оплате</h3>
             <img src="<?=SITE_TEMPLATE_PATH?>/images/cards.jpg" alt="">
         </div>

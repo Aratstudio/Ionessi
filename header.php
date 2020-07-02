@@ -95,13 +95,19 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-3 col-lg-4">
-                            <a href="#" class="logo">
+							<a href="/" class="logo">
                                 <img src="<?=SITE_TEMPLATE_PATH?>/img/logo/logo.png" alt="">
                             </a>
                         </div>
                         <div class="col-xl-2 col-lg-4">
                             <div class="header-phone">
-                                <a href="tel:" class="phone">+7 (931) 222-22-22</a>
+								 <?$APPLICATION->IncludeFile(
+								 SITE_DIR."include/phone.php",
+								 array(),
+								 array(
+									"MODE"=>"html"
+									)  
+								 );?>
                                 <a href="" class="orderphone">Заказать обратный звонок</a>
                             </div>
                         </div>
@@ -158,7 +164,7 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 
                     <div class="menu-mobile-wrapper d-block d-lg-none">
 
-                        <a href="#">
+						<a href="/">
                             <img src="<?=SITE_TEMPLATE_PATH?>/img/logo/logo.png" alt="">
                         </a>
                         <div class="mobile-icons">
@@ -294,21 +300,27 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 
     <div class="main-wrapper">
 
-    <!--
+    <? if ($APPLICATION->GetCurPage(false) !== '/'): ?>
     <div class="breadcrumb-section">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
-                        <li class="breadcrumb-item">Каталог</li>
-                        <li class="breadcrumb-item active">Сапоги демисезонные женские</li>
-                    </ol>
+					<?$APPLICATION->IncludeComponent(
+						"bitrix:breadcrumb",
+						"",
+						Array(
+							"PATH" => "",
+							"SITE_ID" => "s1",
+							"START_FROM" => "0"
+						)
+					);?>
                 </div>
             </div>
         </div>
     </div>
-    -->
+    <? endif; ?>
 
+	<? if ($APPLICATION->GetCurPage(false) !== '/'): ?>
     <section class="inner-part">
             <div class="container">
+	<? endif; ?>
