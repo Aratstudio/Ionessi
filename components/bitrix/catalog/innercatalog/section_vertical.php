@@ -114,11 +114,13 @@ else
 						<div class="catalog-sort">
 							<h3>Сортировать по:</h3>
 							<ul>
-								<li><a href="" class="active">Цене</a></li>
-								<li><a href="">Рейтингу</a></li>
-								<li><a href="">Новизне</a></li>
+								<li><a <?if ($_GET["sort"] == "catalog_PRICE_6"):?> class="active" <?endif;?> href="<?=$arResult["SECTION_PAGE_URL"]?>?sort=catalog_PRICE_6&method=asc">Цене</a></li>
+								<li><a <?if ($_GET["sort"] == "property_RATING"):?> class="active" <?endif;?> href="<?=$arResult["SECTION_PAGE_URL"]?>?sort=property_RATING&method=asc">Рейтингу</a></li>
+								<li><a <?if ($_GET["sort"] == "timestamp_x"):?> class="active" <?endif;?> href="<?=$arResult["SECTION_PAGE_URL"]?>?sort=timestamp_x&method=desc">Новизне</a></li>
 							</ul>
 						</div>
+
+				
 					</div>
 				</div>
 			</div>

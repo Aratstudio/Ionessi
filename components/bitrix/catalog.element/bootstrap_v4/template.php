@@ -171,9 +171,9 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 			<div class="row">
 				<div class="col-md-12">
 					<div class="product-about">
-						<h1 class="d-none d-lg-block"><?=$name?></h1>
+						<h1 class="d-none d-lg-block"><?=$arResult['PROPERTIES']['VID_OBUVI']['VALUE']?></h1>
+							<?/* ------ Это наименование товара (оно берется из свойства "Вид обуви") ----- */?>
 						<div class="row">
-
 							<div class="col-md-12 order-2">
 								<div class="product-much">
 									<p>Количество:</p>
@@ -212,8 +212,8 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 							<div class="col-md-12 order-1">
 								<div class="product-about-block">
 									<div class="product-article">
-										<p>Артикул: 1-3333-4444</p>
-						<!-- ----------- Сюда динамичный артикул ------------------------ -->
+										<p>Артикул: <?php echo $arResult['PROPERTIES']['CML2_ARTICLE']['VALUE']?></p>
+						<!-- -----------  динамичный артикул ------------------------ -->
 									</div>
 
 									<div class="product-raiting">
@@ -305,7 +305,8 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 	if ($arParams['DISPLAY_NAME'] === 'Y')
 	{
 		?>
-		<h1 class="mb-3"><?=$name?></h1>
+		<h1 class="mb-3"><?=$arResult['PROPERTIES']['VID_OBUVI']['VALUE']?></h1>
+		<?/* ------ Это наименование товара (оно берется из свойства "Вид обуви") ----- */?>
 		<?
 	}
 	?>
@@ -446,6 +447,9 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 		?>
 		<div class="<?=($showBlockWithOffersAndProps ? "col-md-5 col-lg-6" : "col-md-4"); ?>">
 			<div class="row">
+			<?php 
+			//echo '<pre>',print_r($arResult,1),'</pre>';
+			?>
 				<?
 				if ($showBlockWithOffersAndProps)
 				{

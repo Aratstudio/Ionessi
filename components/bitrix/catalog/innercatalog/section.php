@@ -24,6 +24,19 @@ $isSidebar = ($arParams["SIDEBAR_SECTION_SHOW"] == "Y" && isset($arParams["SIDEB
 $isSidebarLeft = isset($arParams['SIDEBAR_SECTION_POSITION']) && $arParams['SIDEBAR_SECTION_POSITION'] === 'left';
 $isFilter = ($arParams['USE_FILTER'] == 'Y');
 
+
+if ($_GET["sort"] == "name" ||
+$_GET["sort"] == "catalog_PRICE_6" ||
+$_GET["sort"] == "property_RATING" ||
+$_GET["sort"] == "timestamp_x"){
+$arParams["ELEMENT_SORT_FIELD"] = $_GET["sort"];
+$arParams["ELEMENT_SORT_ORDER"] = $_GET["method"];
+}else{}
+
+
+
+
+
 if ($isFilter)
 {
 	$arFilter = array(

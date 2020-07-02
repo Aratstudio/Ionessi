@@ -11,6 +11,15 @@ use Bitrix\Main\Loader;
 
 global $APPLICATION;
 
+
+
+
+
+$APPLICATION->SetPageProperty("title", "".$arResult['PROPERTIES']['VID_OBUVI']['VALUE']." ".$arResult["NAME"]."");
+
+
+
+
 if (!empty($templateData['TEMPLATE_LIBRARY']))
 {
 	$loadCurrency = false;
@@ -122,3 +131,4 @@ if (isset($templateData['JS_OBJ']))
 		<?
 	}
 }
+
