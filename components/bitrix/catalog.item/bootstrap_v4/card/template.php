@@ -23,8 +23,9 @@ use \Bitrix\Main\Localization\Loc;
  */
 ?>
 
-
+<!--
 <p class="item-new">Новинка</p>
+-->
   <div class="item-image">
 	<? if ($itemHasDetailUrl): ?>
 	<a href="<?=$item['DETAIL_PAGE_URL']?>" title="<?=$imgTitle?>" data-entity="image-wrapper">
@@ -95,7 +96,7 @@ use \Bitrix\Main\Localization\Loc;
 			?>
 			<div class="product-item-label-ring <?=$discountPositionClass?>" id="<?=$itemIds['DSC_PERC']?>"
 				<?=($price['PERCENT'] > 0 ? '' : 'style="display: none;"')?>>
-				<span><?=-$price['PERCENT']?>%</span>
+				<span>СКИДКА <?=-$price['PERCENT']?>%</span>
 			</div>
 			<?
 		}
@@ -168,7 +169,7 @@ use \Bitrix\Main\Localization\Loc;
 <!-- Item Desc Start -->
 <div class="item-desc">
 
-	<p class="item-title"><?=$productTitle?></p>
+	<p class="item-title"><?=$arResult['ITEM']['PROPERTIES']['VID_OBUVI']['VALUE'] ?></p>
 
 
 	<?

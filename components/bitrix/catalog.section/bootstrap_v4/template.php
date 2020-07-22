@@ -156,6 +156,74 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 
 ?>
 
+<div class="top-banner-wrapper d-none d-lg-block">
+<?
+if ($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y')
+{
+	?>
+	<?=$arResult['DESCRIPTION']?>
+	<?
+}
+?>
+</div> 
+
+<div class="catalog-title-wrapper">
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="section-title">
+				<h1>
+				<?php 
+					// $strTitle = $APPLICATION->GetTitle(False);
+					// echo $strTitle
+					echo $arResult['NAME'];
+				?>
+				</h1>
+			</div>
+		</div>
+		<div class="col-lg-6 d-none d-lg-block">
+			<div class="catalog-sort">
+				<!-- сортировка -->
+				<h3>Сортировать по:</h3>
+				<ul id="app">
+					<li>
+						<a <?if ($_GET["sort"] == "catalog_PRICE_6"):?> class="active" <?endif;?> href="<?=$arResult["SECTION_PAGE_URL"]?>?sort=catalog_PRICE_6&method=asc">Цене</a>
+					</li>
+					<li>
+						<a <?if ($_GET["sort"] == "property_RATING"):?> class="active" <?endif;?> href="<?=$arResult["SECTION_PAGE_URL"]?>?sort=property_RATING&method=asc">Рейтингу</a>
+					</li>
+					<li>
+						<a <?if ($_GET["sort"] == "timestamp_x"):?> class="active" <?endif;?> href="<?=$arResult["SECTION_PAGE_URL"]?>?sort=timestamp_x&method=desc">Новизне</a>
+					</li>
+					
+				</ul>
+			</div>
+
+		</div>
+	</div>
+</div>
+		<!-- сортировка мобильная -->
+		<div class="catalog-settings d-block d-lg-none">
+			<div class="catalog-settings__part">
+				<div class="dropdown open">
+					<a type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Сортировать по <i class="fa fa-angle-down" aria-hidden="true"></i>
+					</a>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<a class="dropdown-item" href="<?=$arResult["SECTION_PAGE_URL"]?>?sort=catalog_PRICE_6&method=asc">Цене</a>
+						<a class="dropdown-item" href="<?=$arResult["SECTION_PAGE_URL"]?>?sort=property_RATING&method=asc">Рейтингу</a>
+						<a class="dropdown-item" href="<?=$arResult["SECTION_PAGE_URL"]?>?sort=timestamp_x&method=desc">Новизне</a>
+					</div>
+				</div>
+			</div>
+			<div class="catalog-settings__part">
+				<a href="#" data-toggle="modal" data-target="#openfilter">Фильтр <i class="fa fa-filter" aria-hidden="true"></i></a>
+			</div>
+		</div>
+
+
+
+
+
 
 <div class="catalog-items items-container"> <? // wrapper ?>
 	<div class="row">
@@ -175,18 +243,7 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 	}
 	//endregion
 
-	//region Description
-	if (($arParams['HIDE_SECTION_DESCRIPTION'] !== 'Y') && !empty($arResult['DESCRIPTION']))
-	{
-		?>
-		<div class="row mb-4">
-			<div class="col catalog-section-description">
-				<p><?=$arResult['DESCRIPTION']?></p>
-			</div>
-		</div>
-		<?
-	}
-	//endregion
+
 	?>
 
 			<!-- items-container -->
@@ -753,3 +810,4 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 	</div>
 </div> <? //end wrapper?>
 <!-- component-end -->
+

@@ -1,6 +1,7 @@
 <?
 if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 	die();
+$bIsTopMenuPage=(CSite::InDir('/about/')) || (CSite::InDir('/information/')) || (CSite::InDir('/help/'));
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -79,11 +80,13 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
                         </div>
                     </div>
                     <div class="col-md-auto">
-                        <ul>
-                            <li><a href="#">Доставка и оплата</a></li>
-                            <li><a href="#">Акции</a></li>
-                            <li><a href="#">Новости</a></li>
-                        </ul>
+						<?$APPLICATION->IncludeFile(
+							 SITE_DIR."include/top-menu.php",
+							 array(),
+							 array(
+								"MODE"=>"html"
+								)  
+						 );?>
                     </div>
                 </div>
             </div>
@@ -117,13 +120,13 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
                                 <ul>
                                     <li>
                                         <div class="header-shops">
-                                            <img src="<?=SITE_TEMPLATE_PATH?>/img/icon/karta.svg"></img>
-                                            <a href="#">Все магазины</a>
+                                            <img src="<?=SITE_TEMPLATE_PATH?>/img/icon/karta.svg">
+											<a href="/information/informatsiya-o-magazinakh/">Все магазины</a>
                                         </div>
                                     </li>
-                                    <li><a href=""><img src="<?=SITE_TEMPLATE_PATH?>/img/icon/lich-kab.svg"></a></li>
-                                    <li><a href=""><img src="<?=SITE_TEMPLATE_PATH?>/img/icon/korzina.svg"></a></li>
-                                    <li><a href=""><img src="<?=SITE_TEMPLATE_PATH?>/img/icon/izbrannoe.svg"></a></li>
+                                    <li><a href="/personal/"><img src="<?=SITE_TEMPLATE_PATH?>/img/icon/lich-kab.svg"></a></li>
+                                    <li><a href="/personal/cart/"><img src="<?=SITE_TEMPLATE_PATH?>/img/icon/korzina.svg"></a></li>
+                                    <li><a href="/catalog/compare.php"><img src="<?=SITE_TEMPLATE_PATH?>/img/icon/izbrannoe.svg"></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -146,12 +149,12 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
                                     <li>
                                         <div class="header-shops">
                                             <img src="<?=SITE_TEMPLATE_PATH?>/img/icon/karta.svg"></object>
-                                            <a href="#">Все магазины</a>
+                                            <a href="/information/informatsiya-o-magazinakh/">Все магазины</a>
                                         </div>
                                     </li>
-                                    <li><a href=""><img src="<?=SITE_TEMPLATE_PATH?>/img/icon/lich-kab.svg"></a></li>
-                                    <li><a href=""><img src="<?=SITE_TEMPLATE_PATH?>/img/icon/korzina.svg"></a></li>
-                                    <li><a href=""><img src="<?=SITE_TEMPLATE_PATH?>/img/icon/izbrannoe.svg"></a></li>
+                                    <li><a href="/personal/"><img src="<?=SITE_TEMPLATE_PATH?>/img/icon/lich-kab.svg"></a></li>
+									<li><a href="/personal/cart/"><img src="<?=SITE_TEMPLATE_PATH?>/img/icon/korzina.svg"></a></li>
+                                    <li><a href="/catalog/compare.php"><img src="<?=SITE_TEMPLATE_PATH?>/img/icon/izbrannoe.svg"></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -168,8 +171,8 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
                             <img src="<?=SITE_TEMPLATE_PATH?>/img/logo/logo.png" alt="">
                         </a>
                         <div class="mobile-icons">
-                            <a href=""><img src="<?=SITE_TEMPLATE_PATH?>/img/icon/izbrannoe.svg"></a>
-                            <a href=""><img src="<?=SITE_TEMPLATE_PATH?>/img/icon/korzina.svg"></a>
+                            <a href="/catalog/compare.php"><img src="<?=SITE_TEMPLATE_PATH?>/img/icon/izbrannoe.svg"></a>
+                            <a href="/personal/cart/"><img src="<?=SITE_TEMPLATE_PATH?>/img/icon/korzina.svg"></a>
                         </div>
                     </div>
 
@@ -280,12 +283,12 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
                             <li class="bottom-part-menu d-block d-lg-none">
                                 <p class="region-select">Ваш регион: <a href="#">Красноярск</a></p>
                                 <a href="tel:" class="phone">+7 (931) 222-22-22</a>
-                                <p class="autorization"><a href="#">Регистрация</a>/ <a href="#">Войти</a></p>
-                                <a href="#">Доставка и оплата</a>
-                                <a href="#">Обмен и возврат</a>
-                                <a href="#">Бонусная программа</a>
-                                <a href="#">Вопросы и ответы</a>
-                                <a href="#">Контакты</a>
+                                <p class="autorization"><a href="/personal/?register=yes&SECTION=private">Регистрация</a>/ <a href="/personal/index.php?SECTION=private">Войти</a></p>
+                                <a href="/information/dostavka-i-oplata/">Доставка и оплата</a>
+                                <a href="/information/obmen-i-vozvrat/">Обмен и возврат</a>
+                                <a href="/information/bonusnaya-karta/">Бонусная программа</a>
+                                <a href="/help/voprosy-i-otvety/">Вопросы и ответы</a>
+                                <a href="/about/contacts/">Контакты</a>
                             </li>
                         </ul>
                     </nav>
@@ -300,18 +303,20 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 
     <div class="main-wrapper">
 
-    <? if ($APPLICATION->GetCurPage(false) !== '/'): ?>
+	<? if (($APPLICATION->GetCurPage(false) !== '/') && (!$bIsTopMenuPage)): ?>
     <div class="breadcrumb-section">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
+             
 					<?$APPLICATION->IncludeComponent("bitrix:breadcrumb", "breadcrumb_nav", Array(
-	"PATH" => "",	// Путь, для которого будет построена навигационная цепочка (по умолчанию, текущий путь)
-		"SITE_ID" => "s1",	// Cайт (устанавливается в случае многосайтовой версии, когда DOCUMENT_ROOT у сайтов разный)
-		"START_FROM" => "0",	// Номер пункта, начиная с которого будет построена навигационная цепочка
-	),
-	false
-);?>
+						"PATH" => "",	// Путь, для которого будет построена навигационная цепочка (по умолчанию, текущий путь)
+							"SITE_ID" => "s1",	// Cайт (устанавливается в случае многосайтовой версии, когда DOCUMENT_ROOT у сайтов разный)
+							"START_FROM" => "0",	// Номер пункта, начиная с которого будет построена навигационная цепочка
+						),
+						false
+					);?>
+
                 </div>
             </div>
         </div>
@@ -319,6 +324,30 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
     <? endif; ?>
 
 	<? if ($APPLICATION->GetCurPage(false) !== '/'): ?>
-    <section class="inner-part">
+    <section class="inner-part <?if ($bIsTopMenuPage):?> top-menu-page<? endif; ?>">
             <div class="container">
 	<? endif; ?>
+
+	<?if ($bIsTopMenuPage):?>
+
+			<?$APPLICATION->IncludeComponent("bitrix:menu", "section-menu", Array(
+				"ALLOW_MULTI_SELECT" => "N",	// Разрешить несколько активных пунктов одновременно
+					"CHILD_MENU_TYPE" => "left",	// Тип меню для остальных уровней
+					"DELAY" => "N",	// Откладывать выполнение шаблона меню
+					"MAX_LEVEL" => "1",	// Уровень вложенности меню
+					"MENU_CACHE_GET_VARS" => array(	// Значимые переменные запроса
+						0 => "",
+					),
+					"MENU_CACHE_TIME" => "3600",	// Время кеширования (сек.)
+					"MENU_CACHE_TYPE" => "N",	// Тип кеширования
+					"MENU_CACHE_USE_GROUPS" => "Y",	// Учитывать права доступа
+					"ROOT_MENU_TYPE" => "left",	// Тип меню для первого уровня
+					"USE_EXT" => "N",	// Подключать файлы с именами вида .тип_меню.menu_ext.php
+				),
+				false
+			);?>
+
+			<!-- Content Start -->
+
+			<h1 class="section-title"><?$APPLICATION->ShowTitle(false);?></h1>
+	<?endif;?>        

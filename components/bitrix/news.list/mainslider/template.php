@@ -14,12 +14,15 @@ $this->setFrameMode(true);
 ?>
 
 <div class="top-slider">
+
     <div class="owl-carousel owl-theme">
+
         <?foreach($arResult["ITEMS"] as $arItem):?>
         <?
         $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
         $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
         ?>
+
         <div class="item" id="<?= $this->GetEditAreaId($arItem['ID']); ?>">
 			<a href="<?php if(is_array($arItem["DISPLAY_PROPERTIES"]['SLIDER_LINK'])) echo $arItem['DISPLAY_PROPERTIES']['SLIDER_LINK']['VALUE']; else echo ''; ?>">
             	<img src="<?= $arItem['DETAIL_PICTURE']['SRC'] ?>" alt="<?= $arItem["PREVIEW_PICTURE"]["TITLE"] ?>" class="d-none d-md-block">

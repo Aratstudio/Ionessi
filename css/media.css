@@ -47,7 +47,9 @@
 @media only screen and (max-width : 1200px) {
 
 
-
+	.contacts-block{
+		min-height: auto;
+	}
     .button-container {
         top: 73%;
     }
@@ -347,8 +349,17 @@
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
     
-    
-    
+    .image-action-second.right, .image-action-second.left{
+		display: block;
+		margin-top: 30px;
+	}
+
+	.image-action-first.left, .image-action-first.left{
+		display: none;
+	}
+
+
+
     body{
         margin-top: 1px;
     }

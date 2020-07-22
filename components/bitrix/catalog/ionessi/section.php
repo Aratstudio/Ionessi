@@ -27,7 +27,6 @@ $isFilter = ($arParams['USE_FILTER'] == 'Y');
 
 
 
-
 if ($isFilter)
 {
 	$arFilter = array(

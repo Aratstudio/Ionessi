@@ -419,11 +419,11 @@ $isSidebarLeft = isset($arParams['SIDEBAR_SECTION_POSITION']) && $arParams['SIDE
 					</div>
 					<?
 				}
-
+				
 				if (!isset($arParams['DETAIL_SHOW_POPULAR']) || $arParams['DETAIL_SHOW_POPULAR'] != 'N')
 				{
 					?>
-					<div class="row mb-5">
+					<div class="row mb-54">
 						<div class="col" data-entity="parent-container">
 							<div class="catalog-block-header" data-entity="header" data-showed="false" style="display: none; opacity: 0;">
 								<?=GetMessage('CATALOG_POPULAR_IN_SECTION')?>
@@ -545,7 +545,10 @@ $isSidebarLeft = isset($arParams['SIDEBAR_SECTION_POSITION']) && $arParams['SIDE
 						</div>
 					</div>
 					<?
-				}
+				} 
+
+
+				
 
 				if (
 					Loader::includeModule('catalog')

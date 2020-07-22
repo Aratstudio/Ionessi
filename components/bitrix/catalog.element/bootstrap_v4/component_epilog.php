@@ -12,10 +12,12 @@ use Bitrix\Main\Loader;
 global $APPLICATION;
 
 
+// if(is_array($arResult["SECTION"]))
+// foreach($arResult["SECTION"]["PATH"] as $arPath)
+// $APPLICATION->AddChainItem($arPath["ID"], $arPath["SECTION_PAGE_URL"]);
 
-
-
-$APPLICATION->SetPageProperty("title", "".$arResult['PROPERTIES']['VID_OBUVI']['VALUE']." ".$arResult["NAME"]."");
+// $APPLICATION->AddChainItem($arResult["NAME"], "");
+// хлебные крошки
 
 
 

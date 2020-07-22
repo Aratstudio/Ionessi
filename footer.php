@@ -3,6 +3,7 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 	die();
 ?>
 
+
 <? if ($APPLICATION->GetCurPage(false) !== '/'): ?>
 
 	</div>
@@ -17,24 +18,24 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 
         <div class="footer-widget">
             <h3>Помощь покупателю</h3>
-            <ul>
-                <li><a href="#">Соответствие размеру (мужские и женские)</a></li>
-                <li><a href="#">Уход за обувью</a></li>
-                <li><a href="#">Вопросы и ответы</a></li>
-            </ul>
+            <?$APPLICATION->IncludeFile(
+				 SITE_DIR."include/footer-help.php",
+				 array(),
+				 array(
+					"MODE"=>"html"
+					)  
+			 );?>
         </div>
 
         <div class="footer-widget">
             <h3>Информация</h3>
-            <ul>
-                <li><a href="#">Доставка и оплата</a></li>
-                <li><a href="#">Обмен и возврат</a></li>
-                <li><a href="#">Бонусная карта</a></li>
-                <li><a href="#">Акции</a></li>
-                <li><a href="#">Оферта</a></li>
-                <li><a href="#">Политика конфиденциальности</a></li>
-                <li><a href="#">Информация о магазинах</a></li>
-            </ul>
+            <?$APPLICATION->IncludeFile(
+				 SITE_DIR."include/footer-information.php",
+				 array(),
+				 array(
+					"MODE"=>"html"
+					)  
+			 );?>
         </div>
 
         <div class="footer-widget send-part">
@@ -55,14 +56,13 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 
         <div class="footer-widget">
             <h3>О компании</h3>
-            <ul>
-                <li><a href="#">Вакансии</a></li>
-                <li><a href="#">Производство</a></li>
-                <li><a href="#">Материалы</a></li>
-                <li><a href="#">Оптовым клиентам</a></li>
-                <li><a href="#">История "Ионесси"</a></li>
-                <li><a href="#">Контакты</a></li>
-            </ul>
+            <?$APPLICATION->IncludeFile(
+				 SITE_DIR."include/footer-about.php",
+				 array(),
+				 array(
+					"MODE"=>"html"
+					)  
+			 );?>
         </div>
 
         <div class="footer-widget">
@@ -84,7 +84,7 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 				 );?>
             </div>
             <h3><a href="#">Все магазины</a></h3>
-            <h3 class="social">Мы в соцсетях</h3>
+			<h3 class="social">Мы в соцсетях:</h3>
 			 <?$APPLICATION->IncludeFile(
 			 SITE_DIR."include/social.php",
 			 array(),
@@ -120,7 +120,14 @@ $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/libs/owlcarousel/owl.carousel.m
 $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/libs/slick/slick.min.js');
 $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/libs/magnific-popup/jquery.magnific-popup.min.js');
 $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/common.js');
+//$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/vue.min.js');
+
 ?>
+
+<!-- Yandex Maps for Shops List Start -->
+<script src="http://api-maps.yandex.ru/2.1/?apikey=e7013d94-7e09-47d5-a582-4344d4364bc4&lang=ru_RU" type="text/javascript"></script>
+<? $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/map.js'); ?>
+<!-- Yandex Maps for Shops List End -->
 
 </body>
 

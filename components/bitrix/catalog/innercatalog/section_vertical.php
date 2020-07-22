@@ -2,7 +2,7 @@
 
 use Bitrix\Main\Loader;
 use Bitrix\Main\ModuleManager;
-
+//\Bitrix\Main\UI\Extension::load("ui.vue");
 /**
  * @global CMain $APPLICATION
  * @var CBitrixComponent $component
@@ -31,7 +31,6 @@ else
 }
 ?>
 
-
 <div class="row">
 	<? if ($isFilter || $isSidebar): ?>
 		<div class="col-xl-3 col-lg-4 d-none d-lg-block">
@@ -40,7 +39,7 @@ else
 			if ($isFilter): ?>
 				<div class="bx-sidebar-block">
 					<?
-					$APPLICATION->IncludeComponent("bitrix:catalog.smart.filter", "bootstrap_v4", array(
+					$APPLICATION->IncludeComponent("bitrix:catalog.smart.filter", "smart-filter", array(
 							"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
 							"IBLOCK_ID" => $arParams["IBLOCK_ID"],
 							"SECTION_ID" => $arCurSection['ID'],
@@ -93,57 +92,10 @@ else
 			?>
 		</div>
 	<?endif?>
-
 	<div class="col-xl-9 col-lg-8">
-
-		<div class="top-banner-wrapper d-none d-lg-block">
-			<img src="<?=SITE_TEMPLATE_PATH?>/images/catalog-banner.jpg">
-		</div>
 
 		<!-- Catalog Start -->
  		<div class="catalog">
-
-			<div class="catalog-title-wrapper">
-				<div class="row">
-					<div class="col-lg-6">
-						<div class="section-title">
-							<h1>Обувь весна 2020</h1>
-						</div>
-					</div>
-					<div class="col-lg-6 d-none d-lg-block">
-						<div class="catalog-sort">
-							<h3>Сортировать по:</h3>
-							<ul>
-								<li><a <?if ($_GET["sort"] == "catalog_PRICE_6"):?> class="active" <?endif;?> href="<?=$arResult["SECTION_PAGE_URL"]?>?sort=catalog_PRICE_6&method=asc">Цене</a></li>
-								<li><a <?if ($_GET["sort"] == "property_RATING"):?> class="active" <?endif;?> href="<?=$arResult["SECTION_PAGE_URL"]?>?sort=property_RATING&method=asc">Рейтингу</a></li>
-								<li><a <?if ($_GET["sort"] == "timestamp_x"):?> class="active" <?endif;?> href="<?=$arResult["SECTION_PAGE_URL"]?>?sort=timestamp_x&method=desc">Новизне</a></li>
-							</ul>
-						</div>
-
-				
-					</div>
-				</div>
-			</div>
-
-			<div class="catalog-settings d-block d-lg-none">
-				<div class="catalog-settings__part">
-					<div class="dropdown open">
-						<a type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						  Сортировать по <i class="fa fa-angle-down" aria-hidden="true"></i>
-						</a>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						  <a class="dropdown-item" href="#">Цене</a>
-						  <a class="dropdown-item" href="#">Рейтингу</a>
-						  <a class="dropdown-item" href="#">Новизне</a>
-						</div>
-					  </div>
-				</div>
-				<div class="catalog-settings__part">
-					<a href="#" data-toggle="modal" data-target="#openfilter">Фильтр <i class="fa fa-filter" aria-hidden="true"></i></a>
-				</div>
-			</div>
-
-
 
 		<?
 		if (ModuleManager::isModuleInstalled("sale"))
@@ -266,6 +218,7 @@ else
 			//endregion
 		}
 
+
 		//region Catalog Section
 		$sectionListParams = array(
 			"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
@@ -293,7 +246,7 @@ else
 		}
 		$APPLICATION->IncludeComponent(
 			"bitrix:catalog.section.list",
-			"bootstrap_v4",
+			"custom-section-list",
 			$sectionListParams,
 			$component,
 			array("HIDE_ICONS" => "Y")
@@ -587,4 +540,14 @@ else
 		<!-- Catalog End -->
 	</div>
 </div>
+	<!-- <script>
+				var app = new Vue({
+				el: '#app',
+				data: {
+					seen: true,
+					counter: 0
+				}
+				})
+	</script> -->
+
 

@@ -290,3 +290,20 @@ $('#something').on('click', function() {
       console.log('Second click'); // код для второго клика
     }
   });
+
+
+  /* -------------------- change state sort -------------------- */
+
+//   let count = 0;
+// $( "a" ).each(function() {
+//   let $thisSortElement = $( this );
+//   let count = 0;
+//   $thisSortElement.click(function() {
+//     count++;
+//     $thisSortElement.find( "span" ).text( "clickss: " + count );
+//     $thisSortElement.toggleClass( "highlight", count % 3 === 0 );
+//   });
+// });
+
+
+

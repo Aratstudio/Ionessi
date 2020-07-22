@@ -25,13 +25,16 @@ $isSidebarLeft = isset($arParams['SIDEBAR_SECTION_POSITION']) && $arParams['SIDE
 $isFilter = ($arParams['USE_FILTER'] == 'Y');
 
 
-if ($_GET["sort"] == "name" ||
+if (
 $_GET["sort"] == "catalog_PRICE_6" ||
 $_GET["sort"] == "property_RATING" ||
 $_GET["sort"] == "timestamp_x"){
 $arParams["ELEMENT_SORT_FIELD"] = $_GET["sort"];
 $arParams["ELEMENT_SORT_ORDER"] = $_GET["method"];
-}else{}
+}else{
+
+}
+
 
 
 
